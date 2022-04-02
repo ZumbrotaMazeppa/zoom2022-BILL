@@ -151,10 +151,23 @@ public class Robot<ColorSensorV3> extends TimedRobot {
   public void autonomousInit() {
     m_driveTrain.driveWithAuton(-0.5, 500);
     m_driveTrain.stop();
-    m_driveTrain.driveWithAuton(0.5, 4000);
+    try {
+      Thread.sleep(1000);
+    } catch (Exception e) {
+    }
+   
+    m_driveTrain.driveWithAuton(0.5, 250);
+    m_driveTrain.stop();
+    m_driveTrain.driveWithAuton(-0.5, 250);
 
+    m_driveTrain.stop();
+    try {
+      Thread.sleep(4000);
+    } catch (Exception e) {
+    }
 
-  
+    m_driveTrain.driveWithAuton(0.5, 3500);
+
     /*
      String autoSelected = SmartDashboard.getString("Auto Selector", "Default"); 
      switch(autoSelected) 
